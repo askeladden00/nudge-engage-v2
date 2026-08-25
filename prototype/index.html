@@ -1,0 +1,688 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nudge — Weekly Summary Prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --backdrop: #e8e4da;
+    --backdrop-vignette: #d9d4c6;
+
+    --app-bg: #f4f6f5;
+    --surface: #ffffff;
+    --line: #e2e5e0;
+    --ink: #14202b;
+    --ink-soft: #57626b;
+    --ink-faint: #92a09a;
+
+    --navy: #1f2b45;
+    --navy-soft: #3a4766;
+
+    --accent: #ef6a48;
+    --accent-ink: #b6431f;
+    --accent-tint: #fde9e2;
+
+    --positive: #2f9c68;
+    --positive-tint: #e2f4ea;
+
+    --font-display: "Sora", "Segoe UI", system-ui, sans-serif;
+    --font-body: "Manrope", "Segoe UI", system-ui, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    height: 100%;
+  }
+
+  body {
+    background: radial-gradient(ellipse at 50% 20%, var(--backdrop) 0%, var(--backdrop-vignette) 100%);
+    font-family: var(--font-body);
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 3rem 1rem;
+  }
+
+  .stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.1rem;
+  }
+
+  .stage-label {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #7d776a;
+  }
+
+  /* ---------- Phone frame ---------- */
+
+  .phone {
+    width: 375px;
+    height: 780px;
+    background: #05070a;
+    border-radius: 46px;
+    padding: 12px;
+    box-shadow:
+      0 30px 60px -20px rgba(20, 20, 15, 0.45),
+      0 4px 12px rgba(20, 20, 15, 0.15);
+  }
+
+  .screen {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: var(--app-bg);
+    border-radius: 36px;
+    overflow: hidden;
+  }
+
+  .notch {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 26px;
+    background: #05070a;
+    border-radius: 0 0 16px 16px;
+    z-index: 30;
+  }
+
+  .status-bar {
+    position: relative;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.9rem 1.5rem 0.3rem;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.8rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .status-bar .icons { display: flex; gap: 0.3rem; align-items: center; }
+
+  /* ---------- Views (states) ---------- */
+
+  .view {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+    transition: opacity 0.38s ease, transform 0.38s ease;
+  }
+
+  .view.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .view { transition: opacity 0.01s linear; transform: none; }
+  }
+
+  /* ---------- Lock screen / notification ---------- */
+
+  #view-lock {
+    background:
+      linear-gradient(180deg, rgba(20,32,43,0.15), rgba(20,32,43,0.55)),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='375' height='780'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%232a3a52'/%3E%3Cstop offset='1' stop-color='%2314202b'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='375' height='780' fill='url(%23g)'/%3E%3C/svg%3E");
+    color: #fff;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 4.2rem;
+  }
+
+  #view-lock .status-bar { color: #fff; }
+
+  .lock-time {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 3.6rem;
+    letter-spacing: -0.02em;
+    margin-top: 1.6rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .lock-date {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.75);
+    margin-top: -0.3rem;
+  }
+
+  .notif {
+    margin-top: 2.6rem;
+    width: calc(100% - 2rem);
+    background: rgba(255,255,255,0.14);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 18px;
+    padding: 0.95rem 1rem;
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    cursor: pointer;
+    text-align: left;
+    color: #fff;
+    font-family: inherit;
+    animation: notifIn 0.5s ease-out 0.3s both;
+  }
+
+  @media (prefers-reduced-motion: reduce) { .notif { animation: none; } }
+
+  @keyframes notifIn {
+    from { opacity: 0; transform: translateY(-8px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  .notif:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+
+  .notif-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+    background: var(--accent);
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem;
+  }
+
+  .notif-body { flex: 1; }
+
+  .notif-top {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 0.15rem;
+  }
+
+  .notif-title {
+    font-weight: 700;
+    font-size: 0.92rem;
+    margin-bottom: 0.15rem;
+  }
+
+  .notif-text {
+    font-size: 0.87rem;
+    line-height: 1.35;
+    color: rgba(255,255,255,0.9);
+  }
+
+  .lock-hint {
+    margin-top: auto;
+    margin-bottom: 1.6rem;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.6);
+  }
+
+  /* ---------- App summary screen ---------- */
+
+  #view-summary {
+    padding: 0 0 1.4rem;
+    overflow-y: auto;
+  }
+
+  .app-header {
+    padding: 0.4rem 1.3rem 0.9rem;
+  }
+
+  .app-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  .app-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-top: 0.15rem;
+    letter-spacing: -0.01em;
+  }
+
+  .app-range {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    margin-top: 0.1rem;
+  }
+
+  .cards {
+    padding: 0 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 1.1rem 1.2rem 1.2rem;
+  }
+
+  .card-kicker {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 0.4rem;
+  }
+
+  /* Insight card */
+
+  .insight-headline {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.05rem;
+    line-height: 1.4;
+    text-wrap: balance;
+    margin: 0 0 2.1rem;
+  }
+
+  .insight-headline strong {
+    color: var(--accent-ink);
+  }
+
+  .bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.9rem;
+    height: 74px;
+    padding: 0 0.2rem;
+  }
+
+  .bar-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    flex: 1;
+  }
+
+  .bar-track {
+    width: 100%;
+    max-width: 46px;
+    height: 56px;
+    display: flex;
+    align-items: flex-end;
+    background: var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .bar-fill {
+    width: 100%;
+    background: var(--ink-faint);
+    border-radius: 8px 8px 0 0;
+  }
+
+  .bar-col.current .bar-fill { background: var(--accent); }
+
+  .bar-amt {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.78rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .bar-label {
+    font-size: 0.68rem;
+    color: var(--ink-faint);
+  }
+
+  /* Goal card */
+
+  .goal-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.55rem;
+  }
+
+  .goal-name {
+    font-weight: 700;
+    font-size: 0.98rem;
+  }
+
+  .goal-amounts {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .goal-amounts strong { color: var(--ink); }
+
+  .progress-track {
+    width: 100%;
+    height: 10px;
+    background: var(--line);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: var(--positive);
+    border-radius: 999px;
+    width: 34%;
+    transition: width 0.7s cubic-bezier(.3,.9,.3,1);
+  }
+
+  @media (prefers-reduced-motion: reduce) { .progress-fill { transition: none; } }
+
+  .goal-pct {
+    margin-top: 0.4rem;
+    font-size: 0.76rem;
+    color: var(--ink-faint);
+  }
+
+  /* Nudge card */
+
+  .nudge-card {
+    background: linear-gradient(160deg, var(--navy) 0%, var(--navy-soft) 100%);
+    color: #fff;
+    border: none;
+  }
+
+  .nudge-card .card-kicker { color: rgba(255,255,255,0.6); }
+
+  .nudge-text {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.05rem;
+    line-height: 1.35;
+    margin: 0 0 0.3rem;
+    text-wrap: balance;
+  }
+
+  .nudge-sub {
+    font-size: 0.83rem;
+    color: rgba(255,255,255,0.72);
+    margin: 0 0 1rem;
+  }
+
+  .nudge-btn {
+    width: 100%;
+    border: none;
+    border-radius: 13px;
+    background: var(--accent);
+    color: #fff;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 0.85rem 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: transform 0.15s ease, background 0.15s ease;
+  }
+
+  .nudge-btn:hover { background: #e35a38; }
+  .nudge-btn:active { transform: scale(0.98); }
+  .nudge-btn:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+
+  .nudge-btn[disabled] {
+    background: rgba(255,255,255,0.16);
+    color: rgba(255,255,255,0.5);
+    cursor: default;
+  }
+
+  .spinner {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.4);
+    border-top-color: #fff;
+    animation: spin 0.7s linear infinite;
+    display: none;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* Confirmation state */
+
+  .confirm-flash {
+    display: none;
+    align-items: center;
+    gap: 0.6rem;
+    background: var(--positive-tint);
+    color: var(--positive);
+    border-radius: 13px;
+    padding: 0.85rem 1rem;
+    font-weight: 700;
+    font-size: 0.92rem;
+  }
+
+  .confirm-flash .check {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--positive);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    flex: none;
+  }
+
+  .replay {
+    text-align: center;
+    margin-top: 0.4rem;
+  }
+
+  .replay button {
+    background: none;
+    border: none;
+    color: var(--ink-faint);
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .replay button:hover { color: var(--ink-soft); }
+
+  .prototype-note {
+    max-width: 375px;
+    text-align: center;
+    font-size: 0.78rem;
+    color: #5c5748;
+    line-height: 1.5;
+  }
+
+  .prototype-note strong { color: #3a362c; }
+</style>
+</head>
+<body>
+
+  <div class="stage">
+    <div class="stage-label">Nudge · Weekly Summary Prototype</div>
+
+    <div class="phone">
+      <div class="screen">
+        <div class="notch"></div>
+
+        <!-- LOCK SCREEN / NOTIFICATION -->
+        <div class="view active" id="view-lock">
+          <div class="status-bar">
+            <span>9:41</span>
+            <div class="icons">
+              <span>📶</span><span>🔋</span>
+            </div>
+          </div>
+          <div class="lock-time">9:41</div>
+          <div class="lock-date">Monday, August 17</div>
+
+          <button class="notif" id="btn-open-notif" aria-label="Open notification: Your week in review is ready">
+            <div class="notif-icon">💸</div>
+            <div class="notif-body">
+              <div class="notif-top"><span>NUDGE</span><span>now</span></div>
+              <div class="notif-title">Your week in review is ready</div>
+              <div class="notif-text">This week's spending shifted a bit — here's one easy move to stay on pace for your Europe Trip.</div>
+            </div>
+          </button>
+
+          <div class="lock-hint">Tap the notification to open Nudge</div>
+        </div>
+
+        <!-- APP: WEEKLY SUMMARY -->
+        <div class="view" id="view-summary">
+          <div class="status-bar" style="color: var(--ink);">
+            <span>9:41</span>
+            <div class="icons"><span>📶</span><span>🔋</span></div>
+          </div>
+
+          <div class="app-header">
+            <div class="app-eyebrow">Weekly Summary</div>
+            <div class="app-title">Your week, at a glance</div>
+            <div class="app-range">Aug 10 – Aug 16</div>
+          </div>
+
+          <div class="cards">
+
+            <div class="card">
+              <div class="card-kicker">Top Insight</div>
+              <p class="insight-headline">Dining &amp; delivery came in at <strong>$186</strong> this week — here's one easy way to stay on track for your Europe Trip.</p>
+              <div class="bars">
+                <div class="bar-col">
+                  <div class="bar-track"><div class="bar-fill" style="height: 22%;"></div></div>
+                  <div class="bar-amt">$62</div>
+                  <div class="bar-label">Week 1</div>
+                </div>
+                <div class="bar-col current">
+                  <div class="bar-track"><div class="bar-fill" style="height: 100%;"></div></div>
+                  <div class="bar-amt">$186</div>
+                  <div class="bar-label">This week</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-kicker">Goal Progress</div>
+              <div class="goal-row">
+                <div class="goal-name">Europe Trip</div>
+                <div class="goal-amounts"><strong id="goal-current">$340</strong> of $1,000</div>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill" id="goal-bar" style="width: 34%;"></div>
+              </div>
+              <div class="goal-pct" id="goal-pct-label">34% there</div>
+            </div>
+
+            <div class="card nudge-card" id="nudge-card">
+              <div class="card-kicker">One Thing To Try</div>
+              <p class="nudge-text">Move $25 to Europe Trip to offset this week's dining spike.</p>
+              <p class="nudge-sub">From your Chase checking account — you'll still be on pace even with the higher spending.</p>
+
+              <button class="nudge-btn" id="btn-nudge">
+                <span class="spinner" id="nudge-spinner"></span>
+                <span id="nudge-btn-label">Move $25 to Europe Trip</span>
+              </button>
+
+              <div class="confirm-flash" id="confirm-flash">
+                <span class="check">✓</span>
+                <span>Done — $25 moved. You're 36.5% to your goal.</span>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="replay">
+            <button id="btn-replay" type="button">↺ Replay demo</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <p class="prototype-note"><strong>Prototype note —</strong> transaction data, dates, and goal amounts are illustrative sample data, not a real account. Built against the constraint of using data Nudge already has — no new integrations.</p>
+  </div>
+
+<script>
+  (function () {
+    var lock = document.getElementById('view-lock');
+    var summary = document.getElementById('view-summary');
+    var openNotif = document.getElementById('btn-open-notif');
+    var nudgeBtn = document.getElementById('btn-nudge');
+    var nudgeLabel = document.getElementById('nudge-btn-label');
+    var spinner = document.getElementById('nudge-spinner');
+    var confirmFlash = document.getElementById('confirm-flash');
+    var goalBar = document.getElementById('goal-bar');
+    var goalCurrent = document.getElementById('goal-current');
+    var goalPctLabel = document.getElementById('goal-pct-label');
+    var replayBtn = document.getElementById('btn-replay');
+
+    function openApp() {
+      lock.classList.remove('active');
+      summary.classList.add('active');
+    }
+
+    openNotif.addEventListener('click', openApp);
+    openNotif.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openApp(); }
+    });
+
+    function completeNudge() {
+      nudgeBtn.setAttribute('disabled', 'true');
+      nudgeLabel.textContent = 'Moving…';
+      spinner.style.display = 'inline-block';
+
+      setTimeout(function () {
+        nudgeBtn.style.display = 'none';
+        confirmFlash.style.display = 'flex';
+        goalBar.style.width = '36.5%';
+        goalCurrent.textContent = '$365';
+        goalPctLabel.textContent = '36.5% there';
+      }, 700);
+    }
+
+    nudgeBtn.addEventListener('click', completeNudge);
+
+    function resetDemo() {
+      summary.classList.remove('active');
+      lock.classList.add('active');
+
+      nudgeBtn.style.display = 'flex';
+      nudgeBtn.removeAttribute('disabled');
+      nudgeLabel.textContent = 'Move $25 to Europe Trip';
+      spinner.style.display = 'none';
+      confirmFlash.style.display = 'none';
+      goalBar.style.width = '34%';
+      goalCurrent.textContent = '$340';
+      goalPctLabel.textContent = '34% there';
+    }
+
+    replayBtn.addEventListener('click', resetDemo);
+  })();
+</script>
+
+</body>
+</html>
