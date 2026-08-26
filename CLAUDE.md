@@ -18,6 +18,7 @@ I report to Marcus, Head of Product.
 - Is the week-1 goal-setting correlation causal, or a proxy for a more engaged user segment? Tom R. (churned user, see research/interview-synthesis.md) completed comparable week-1 actions — connected three accounts, set up a budget — and still churned at 5 weeks, which complicates reading the correlation as causal. A third data point reinforces this: an NPS respondent (research/nps-analysis.md, #6) set a savings goal and says the app "never once mentioned it since" — independent evidence that goal-setting alone isn't being reinforced by the product, regardless of its effect on churn.
 
 ## Related Files
+- [README.md](README.md) — root repo overview: what this project is, current status, live links, file organization
 - [project.md](project.md) — current situation, PRD skeleton (Problem Statement, Goals, Non-Goals, Success Metrics), phase, stakeholders
 - [strategy.md](strategy.md) — Engage v2 hypothesis and supporting evidence
 - [change_log.md](change_log.md) — decision audit trail
@@ -32,6 +33,9 @@ I report to Marcus, Head of Product.
 - [research/agentic-playtest.md](research/agentic-playtest.md) — simulated persona playtest (Priya, Tom, Amara) of the prototype, with a stack-ranked backlog
 - [research/prototype-feedback.md](research/prototype-feedback.md) — real user feedback on the published prototype
 - [Four Rounds](https://claude.ai/code/artifact/d35aa31e-030c-499f-985c-20e2f54ada62) — slide deck covering the full feedback loop (4 rounds, before/after, backlog), private by default
+
+## Repo
+Pushed to a private GitHub repo: https://github.com/askeladden00/nudge-engage-v2
 
 ## Working Norms
 - Proactively prompt before saving/updating project.md, strategy.md, change_log.md, or any new file we create together — don't save silently.
