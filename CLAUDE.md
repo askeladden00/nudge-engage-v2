@@ -28,6 +28,7 @@ I report to Marcus, Head of Product.
 - [The Habit Gap](https://claude.ai/code/artifact/81972a96-b878-499b-a2cb-7eb66fc2dac3) — visual artifact version of the competitive matrix (private by default)
 - [docs/decision-brief.md](docs/decision-brief.md) — 1-page decision brief for Marcus synthesizing all four research streams
 - [docs/pm-brief.md](docs/pm-brief.md) — PM brief for the weekly-summary prototype (user, job-to-be-done, feature, constraint)
+- [docs/hypothesis.md](docs/hypothesis.md) — learning synthesis (know/assume/don't know) and the updated hypothesis (H1/H2/H3, confidence-scored) superseding strategy.md's original hypothesis
 - [prototype/](prototype/) — interactive weekly-summary prototype (notification → summary → nudge action → confirmation), see prototype/README.md
 - [Weekly Summary Prototype](https://claude.ai/code/artifact/d22034e8-634f-4012-a375-4270786bd1e2) — shareable Artifact version of the prototype, for peer review (private by default)
 - [research/agentic-playtest.md](research/agentic-playtest.md) — simulated persona playtest (Priya, Tom, Amara) of the prototype, with a stack-ranked backlog

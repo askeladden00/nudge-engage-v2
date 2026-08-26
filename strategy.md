@@ -3,6 +3,8 @@
 ## Hypothesis
 Users go passive because the app stops feeling relevant after the first week. The initial spending breakdown is a compelling "aha moment," but after that Nudge hasn't given users a reason to come back that feels personal, timely, or actionable.
 
+**Update:** After four rounds of prototype testing, this hypothesis has been superseded by a sharper, confidence-scored version — see [docs/hypothesis.md](docs/hypothesis.md). Summary: personalization alone wasn't sufficient; the binding constraint looks more like *trust/verifiability* (H1, 70% confidence) than relevance per se, with two lower-confidence secondary hypotheses (priority-aware nudging, notification delivery reach) also surfaced but not yet corroborated.
+
 ## Supporting Evidence
 - Users who don't set a savings goal in week 1 churn at roughly 2x the rate of those who do.
 - The home feed looks the same whether a user last opened the app yesterday or three weeks ago.
