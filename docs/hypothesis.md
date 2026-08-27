@@ -73,6 +73,12 @@ The four rounds surfaced three distinct, testable claims — not equally support
 - **Prediction:** Users carrying debt who are shown a debt-aware nudge report higher trust/satisfaction than those shown the current priority-blind, goal-transfer nudge.
 - **Null hypothesis:** Priority-awareness produces no measurable difference — users don't distinguish between priority-aware and priority-blind nudges in practice.
 
+#### Implementation Estimate (assuming a Firefly-III-like codebase)
+- Task breakdown: debt-detection query (~0.5d), priority decision logic (~0.5–1d), nudge copy branching (~1d), tests (~1d), edge cases (~0.5–1d).
+- Total: ~3.5–4.5 engineering days solo, assuming in-app-only scope, a simple binary priority rule, and no new user-collected data. Grounded in `docs/codebase-summary.md` — debt accounts (`CREDITCARD`/`DEBT`/`LOAN`/`MORTGAGE`) are already a first-class, queryable concept in the reference codebase, which is what keeps this estimate small.
+- Split between Claude (query, branching scaffold, tests) and Raj/Lena (the priority-rule decision, copy tone) compresses this to roughly 1.5–2 days elapsed — the two genuine judgment calls don't get faster, but the mechanical work moves off the critical path.
+- Caveat: this doesn't change H2's 25% confidence — cheaper to build ≠ safer to build before validating.
+
 ### Secondary Hypothesis (H3 — Notification Delivery Reach)
 *Support: weak (30%) — single simulated persona (Tom), with a weak, indirect echo in NPS #5 ("I just forget it exists") that speaks to low salience but isn't a direct match to the delivery-reach claim.*
 

@@ -131,3 +131,8 @@ Audit trail of decisions made as Engage v2 progresses. Each entry: date, decisio
 **Decision:** Replaced docs/codebase-summary.md's content — was a tour of maybe-finance/maybe, now firefly-iii/firefly-iii (cloned and read directly, at user's explicit request to swap references).
 **Made by:** Me
 **Why:** Firefly III is actively maintained (unlike Maybe) and turned out to have a materially different, more favorable architecture for our feature: a real structured goal model (PiggyBank, with target/current amount tracking) and a working multi-channel notification system (Mail/Slack/Pushover/ntfy) with a real example (BillReminder.php) — versus Maybe, where neither existed. Also flagged (but did not act on) a prompt-injection attempt found in the repo's own agents.md, instructing AI agents to add emoji to PR/issue titles "for expedited processing."
+
+## 2026-08-19
+**Decision:** Added an Implementation Estimate to H2 in docs/hypothesis.md — a ~3.5–4.5 engineering-day solo estimate (verified against docs/codebase-summary.md's finding that debt account types are already first-class in the reference codebase), plus a Claude/Raj/Lena work-split analysis showing it compresses to ~1.5–2 days elapsed.
+**Made by:** Me
+**Why:** Directly requested to inform sequencing/prioritization decisions. Kept the existing 25% confidence caveat attached, since a cheaper build doesn't change whether H2 is validated yet.
