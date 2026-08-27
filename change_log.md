@@ -136,3 +136,8 @@ Audit trail of decisions made as Engage v2 progresses. Each entry: date, decisio
 **Decision:** Added an Implementation Estimate to H2 in docs/hypothesis.md — a ~3.5–4.5 engineering-day solo estimate (verified against docs/codebase-summary.md's finding that debt account types are already first-class in the reference codebase), plus a Claude/Raj/Lena work-split analysis showing it compresses to ~1.5–2 days elapsed.
 **Made by:** Me
 **Why:** Directly requested to inform sequencing/prioritization decisions. Kept the existing 25% confidence caveat attached, since a cheaper build doesn't change whether H2 is validated yet.
+
+## 2026-08-19
+**Decision:** Created stakeholders/raj.md, stakeholders/lena.md, stakeholders/marcus.md — profiles combining what's actually documented about each person across docs/decision-brief.md, docs/triad-session.md, research/interview-synthesis.md, and docs/hypothesis.md, with user-supplied default profiles filling gaps. Each fact is labeled as workspace-confirmed or default/unconfirmed. Indexed in CLAUDE.md.
+**Made by:** Me
+**Why:** Requested to prep for stakeholder conversations. Each file closes with the single highest-leverage insight per person — for Raj and Marcus, both trace back to the same still-undefined success metric in project.md; for Lena, her standing question maps directly to the untested weekly-cadence assumption already flagged in docs/hypothesis.md.
