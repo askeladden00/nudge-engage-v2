@@ -156,3 +156,8 @@ Audit trail of decisions made as Engage v2 progresses. Each entry: date, decisio
 **Decision:** Created docs/qa-checklist.md — an edge case list (empty states, edge data conditions, multi-account scenarios, permission states), a 10-point PM QA pass on prototype/index.html (pass/fail/cannot-determine, split into launch-blocking vs. known-issue), and a draft PR comment for Raj. The single highest-value catch: no overdraft/balance-safety check exists anywhere (not in the prototype, not in docs/spec-readiness.md) before recommending the $25 nudge transfer. Indexed in CLAUDE.md.
 **Made by:** Me
 **Why:** Requested ahead of QA. The overdraft gap is new — it wasn't surfaced by the Raj or Lena negotiations, the agentic playtest, or the real prototype feedback — and it's directly relevant given how much the feature's premise rests on trust (H1 in docs/hypothesis.md).
+
+## 2026-08-19
+**Decision:** Added .DS_Store to .gitignore.
+**Made by:** Me
+**Why:** A macOS Finder artifact turned up untracked during a /session-save pass — not project content, excluded to keep it out of future commits.
