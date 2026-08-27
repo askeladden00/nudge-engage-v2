@@ -111,3 +111,8 @@ Audit trail of decisions made as Engage v2 progresses. Each entry: date, decisio
 **Decision:** Created docs/hypothesis.md — a learning synthesis (what we know / assume / don't know, drawn from change_log.md, decision-brief.md, and all research files) plus an updated hypothesis. The original single hypothesis was split into a primary hypothesis (H1 — verifiability, 70% confidence) and two secondary hypotheses (H2 — priority-aware nudging, 25%; H3 — notification delivery reach, 30%), each in hypothesis/prediction/null-hypothesis form with a confidence score and validation-cost note. Cross-linked from strategy.md (noting the original hypothesis is superseded) and indexed in CLAUDE.md.
 **Made by:** Me
 **Why:** First draft bundled three distinct claims into one overloaded paragraph — user flagged it read as multiple hypotheses smashed together with uneven evidence. Revised to separate them by evidence strength and rewrite each in a testable (falsifiable) scientific-method format, then added confidence scores so the user can prioritize which to validate first.
+
+## 2026-08-19
+**Decision:** Created docs/triad-session.md (agenda + post-session alignment template) for a 30-min working session with Raj and Lena on the prototype, and drafted the Slack invite (given in chat, not saved to a file per instructions).
+**Made by:** Me
+**Why:** Grounded the agenda's discussion questions directly in existing open items (docs/decision-brief.md's resourcing ask, docs/hypothesis.md's confidence scores) so the session produces a sized decision rather than just a status update.
