@@ -116,3 +116,13 @@ Audit trail of decisions made as Engage v2 progresses. Each entry: date, decisio
 **Decision:** Created docs/triad-session.md (agenda + post-session alignment template) for a 30-min working session with Raj and Lena on the prototype, and drafted the Slack invite (given in chat, not saved to a file per instructions).
 **Made by:** Me
 **Why:** Grounded the agenda's discussion questions directly in existing open items (docs/decision-brief.md's resourcing ask, docs/hypothesis.md's confidence scores) so the session produces a sized decision rather than just a status update.
+
+## 2026-08-19
+**Decision:** Created docs/codebase-summary.md — a PM-level tour of the maybe-finance/maybe reference codebase (cloned and read directly, not from memory), mapping the weekly summary feature to it, and flagging spec-relevant gaps. Indexed in CLAUDE.md.
+**Made by:** Me
+**Why:** Requested to inform how the Nudge Engage v2 spec gets written. Key finding: neither push notification infrastructure nor a structured savings-goal model exists in the reference codebase — sharpens the existing resourcing-ask open item from docs/decision-brief.md into a concrete scoping fork (in-app-only vs. full notification+goal-model build).
+
+## 2026-08-19
+**Decision:** Filled out the post-session alignment template in docs/triad-session.md with a simulated outcome (descope to an in-app-only MVP testing H1 first; treat push notifications + a Goal model as a separate initiative; hold H2/H3 for lighter validation).
+**Made by:** Me, at the user's explicit request to assume the session happened
+**Why:** User asked to project a plausible outcome to keep planning moving. Clearly labeled as simulated, not a real session record, consistent with how simulated evidence has been distinguished from real evidence throughout this project — to be replaced with the real outcome once the session actually happens.
