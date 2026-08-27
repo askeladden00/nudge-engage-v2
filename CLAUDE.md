@@ -30,7 +30,7 @@ I report to Marcus, Head of Product.
 - [docs/pm-brief.md](docs/pm-brief.md) — PM brief for the weekly-summary prototype (user, job-to-be-done, feature, constraint)
 - [docs/hypothesis.md](docs/hypothesis.md) — learning synthesis (know/assume/don't know) and the updated hypothesis (H1/H2/H3, confidence-scored) superseding strategy.md's original hypothesis
 - [docs/triad-session.md](docs/triad-session.md) — agenda, alignment template, and a labeled simulated outcome for the Raj/Lena working session on the prototype
-- [docs/codebase-summary.md](docs/codebase-summary.md) — PM-level tour of maybe-finance/maybe (reference codebase), feature mapping, and spec-relevant gaps for the weekly summary feature
+- [docs/codebase-summary.md](docs/codebase-summary.md) — PM-level tour of firefly-iii/firefly-iii (reference codebase), feature mapping, and spec-relevant gaps for the weekly summary feature
 - [prototype/](prototype/) — interactive weekly-summary prototype (notification → summary → nudge action → confirmation), see prototype/README.md
 - [Weekly Summary Prototype](https://claude.ai/code/artifact/d22034e8-634f-4012-a375-4270786bd1e2) — shareable Artifact version of the prototype, for peer review (private by default)
 - [research/agentic-playtest.md](research/agentic-playtest.md) — simulated persona playtest (Priya, Tom, Amara) of the prototype, with a stack-ranked backlog

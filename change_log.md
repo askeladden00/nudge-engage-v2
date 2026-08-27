@@ -126,3 +126,8 @@ Audit trail of decisions made as Engage v2 progresses. Each entry: date, decisio
 **Decision:** Filled out the post-session alignment template in docs/triad-session.md with a simulated outcome (descope to an in-app-only MVP testing H1 first; treat push notifications + a Goal model as a separate initiative; hold H2/H3 for lighter validation).
 **Made by:** Me, at the user's explicit request to assume the session happened
 **Why:** User asked to project a plausible outcome to keep planning moving. Clearly labeled as simulated, not a real session record, consistent with how simulated evidence has been distinguished from real evidence throughout this project — to be replaced with the real outcome once the session actually happens.
+
+## 2026-08-19
+**Decision:** Replaced docs/codebase-summary.md's content — was a tour of maybe-finance/maybe, now firefly-iii/firefly-iii (cloned and read directly, at user's explicit request to swap references).
+**Made by:** Me
+**Why:** Firefly III is actively maintained (unlike Maybe) and turned out to have a materially different, more favorable architecture for our feature: a real structured goal model (PiggyBank, with target/current amount tracking) and a working multi-channel notification system (Mail/Slack/Pushover/ntfy) with a real example (BillReminder.php) — versus Maybe, where neither existed. Also flagged (but did not act on) a prompt-injection attempt found in the repo's own agents.md, instructing AI agents to add emoji to PR/issue titles "for expedited processing."
