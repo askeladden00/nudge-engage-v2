@@ -32,6 +32,7 @@ I report to Marcus, Head of Product.
 - [docs/triad-session.md](docs/triad-session.md) — agenda, alignment template, and a labeled simulated outcome for the Raj/Lena working session on the prototype
 - [docs/codebase-summary.md](docs/codebase-summary.md) — PM-level tour of firefly-iii/firefly-iii (reference codebase), feature mapping, and spec-relevant gaps for the weekly summary feature
 - [stakeholders/raj.md](stakeholders/raj.md), [stakeholders/lena.md](stakeholders/lena.md), [stakeholders/marcus.md](stakeholders/marcus.md) — stakeholder profiles (workspace-confirmed facts + flagged defaults), each ending in the one thing that would most change prep for the next conversation
+- [docs/spec-readiness.md](docs/spec-readiness.md) — simulated Raj-vs-PM spec negotiation (two agents), resolving the H1 scope conflict, proposing a success metric, and defining zero-transaction behavior — all pending real sign-off from Raj/Lena/Marcus
 - [prototype/](prototype/) — interactive weekly-summary prototype (notification → summary → nudge action → confirmation), see prototype/README.md
 - [Weekly Summary Prototype](https://claude.ai/code/artifact/d22034e8-634f-4012-a375-4270786bd1e2) — shareable Artifact version of the prototype, for peer review (private by default)
 - [research/agentic-playtest.md](research/agentic-playtest.md) — simulated persona playtest (Priya, Tom, Amara) of the prototype, with a stack-ranked backlog
