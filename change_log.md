@@ -191,3 +191,8 @@ Audit trail of decisions made as Engage v2 progresses. Each entry: date, decisio
 **Decision:** Built out prototype/index.html to satisfy User Stories 2 and 5 from docs/prd.md: a transaction-level drill-down (`<details>` disclosure showing the 5 charges behind $186, merchant/date/amount) and an "Ordinary Week" scenario (toggle-able alongside the existing spike week, with calmer copy, close-together bars, a 3-charge grocery breakdown, and a no-action-required nudge card). Stories 1, 3, and 4 were already in the prototype. Verified via read_page/JS (the browser tool's screenshot cache proved stale for this local file, a known quirk this session) — toggle switches correctly, both transaction disclosures sum correctly, and the existing nudge/confirmation flow has no regressions. Updated prototype/README.md and republished the Artifact (same URL) to match.
 **Made by:** Me
 **Why:** User asked to build out the PRD's user stories 1-5; stories 1/3/4 already existed, so work focused on the two gaps.
+
+## 2026-08-19
+**Decision:** Created .claude/skills/prd/SKILL.md — a reusable skill (`/prd`) that writes future PRDs in the same format and discipline as docs/prd.md: read the named audience's stakeholder profile(s) to calibrate tone/detail, read every workspace file touching the feature, propose additional grounded content before finalizing, one page by default (two max, only with confirmation), and cite every substantive claim inline or move it to Open Questions instead. Indexed in CLAUDE.md and README.md.
+**Made by:** Me
+**Why:** User liked the PRD's format and wanted it repeatable for future features, matching the precedent set by the session-save skill.

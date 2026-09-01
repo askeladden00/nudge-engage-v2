@@ -38,6 +38,7 @@ All private by default — share from each artifact's own menu.
 | `docs/` | `decision-brief.md` (1-page brief synthesizing all research for Marcus), `pm-brief.md` (the brief the prototype was built against) |
 | `prototype/` | The interactive HTML prototype, its README, and `screenshots/` — full-flow screenshots across 4 rounds of feedback |
 | `.claude/skills/session-save/` | An end-of-session hygiene skill that proposes updates to the tracking files above before writing anything |
+| `.claude/skills/prd/` | Writes audience-calibrated PRDs (`/prd`) — grounded entirely in workspace files, every claim cited, in the same format as `docs/prd.md` |
 
 ## A Note on Evidence
 
