@@ -519,6 +519,93 @@
   }
 
   .prototype-note strong { color: #3a362c; }
+
+  /* ---------- Scenario toggle (prototype-only affordance) ---------- */
+
+  .scenario-toggle {
+    display: flex;
+    gap: 0.4rem;
+    padding: 0 1.1rem 0.9rem;
+  }
+
+  .scenario-btn {
+    flex: 1;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--ink-soft);
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.78rem;
+    padding: 0.5rem 0.6rem;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .scenario-btn.active {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: #fff;
+  }
+
+  .scenario-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .scenario-block { display: none; flex-direction: column; gap: 0.85rem; }
+  .scenario-block.active { display: flex; }
+
+  /* ---------- Transaction drill-down ---------- */
+
+  .txn-disclosure { margin-top: 0.9rem; }
+
+  .txn-disclosure summary {
+    cursor: pointer;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--accent-ink);
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .txn-disclosure summary::-webkit-details-marker { display: none; }
+
+  .txn-disclosure summary::after {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);
+    transition: transform 0.15s ease;
+    margin-top: -3px;
+  }
+
+  .txn-disclosure[open] summary::after { transform: rotate(-135deg); margin-top: 3px; }
+
+  .txn-list {
+    margin: 0.7rem 0 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--line);
+  }
+
+  .txn-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.7rem;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.82rem;
+  }
+
+  .txn-merchant { color: var(--ink); font-weight: 600; }
+  .txn-date { color: var(--ink-faint); font-weight: 400; display: block; font-size: 0.72rem; margin-top: 0.1rem; }
+  .txn-amt { font-family: var(--font-body); font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  /* ---------- Ordinary-week nudge (no action required) ---------- */
+
+  .nudge-card.steady { background: linear-gradient(160deg, var(--positive) 0%, #257a51 100%); }
+  .nudge-card.steady .card-kicker { color: rgba(255,255,255,0.7); }
 </style>
 </head>
 <body>
@@ -566,53 +653,107 @@
             <div class="app-range">Aug 10 – Aug 16</div>
           </div>
 
+          <div class="scenario-toggle" role="group" aria-label="Preview scenario — prototype only, not part of the real app">
+            <button type="button" class="scenario-btn active" id="btn-scenario-spike">Spike Week</button>
+            <button type="button" class="scenario-btn" id="btn-scenario-ordinary">Ordinary Week</button>
+          </div>
+
           <div class="cards">
 
-            <div class="card">
-              <div class="card-kicker">Top Insight</div>
-              <p class="insight-headline">Dining &amp; delivery came in at <strong>$186</strong> this week — here's one easy way to stay on track for your Europe Trip.</p>
-              <div class="bars">
-                <div class="bar-col">
-                  <div class="bar-track"><div class="bar-fill" style="height: 22%;"></div></div>
-                  <div class="bar-amt">$62</div>
-                  <div class="bar-label">Week 1</div>
+            <!-- SPIKE WEEK -->
+            <div class="scenario-block active" id="scenario-spike">
+              <div class="card">
+                <div class="card-kicker">Top Insight</div>
+                <p class="insight-headline">Dining &amp; delivery came in at <strong>$186</strong> this week — here's one easy way to stay on track for your Europe Trip.</p>
+                <div class="bars">
+                  <div class="bar-col">
+                    <div class="bar-track"><div class="bar-fill" style="height: 22%;"></div></div>
+                    <div class="bar-amt">$62</div>
+                    <div class="bar-label">Week 1</div>
+                  </div>
+                  <div class="bar-col current">
+                    <div class="bar-track"><div class="bar-fill" style="height: 100%;"></div></div>
+                    <div class="bar-amt">$186</div>
+                    <div class="bar-label">This week</div>
+                  </div>
                 </div>
-                <div class="bar-col current">
-                  <div class="bar-track"><div class="bar-fill" style="height: 100%;"></div></div>
-                  <div class="bar-amt">$186</div>
-                  <div class="bar-label">This week</div>
+
+                <details class="txn-disclosure">
+                  <summary>See the 5 charges behind $186</summary>
+                  <ul class="txn-list">
+                    <li class="txn-row"><span class="txn-merchant">Local Bistro<span class="txn-date">Aug 13</span></span><span class="txn-amt">$62.00</span></li>
+                    <li class="txn-row"><span class="txn-merchant">Local Bistro<span class="txn-date">Aug 15</span></span><span class="txn-amt">$39.50</span></li>
+                    <li class="txn-row"><span class="txn-merchant">Uber Eats<span class="txn-date">Aug 15</span></span><span class="txn-amt">$41.25</span></li>
+                    <li class="txn-row"><span class="txn-merchant">DoorDash<span class="txn-date">Aug 12</span></span><span class="txn-amt">$34.50</span></li>
+                    <li class="txn-row"><span class="txn-merchant">Starbucks<span class="txn-date">Aug 14</span></span><span class="txn-amt">$8.75</span></li>
+                  </ul>
+                </details>
+              </div>
+
+              <div class="card nudge-card" id="nudge-card">
+                <div class="card-kicker">One Thing To Try</div>
+                <p class="nudge-text">Move $25 to Europe Trip to offset this week's dining spike.</p>
+                <p class="nudge-sub">From your Chase checking account — you'll still be on pace even with the higher spending.</p>
+
+                <button class="nudge-btn" id="btn-nudge">
+                  <span class="spinner" id="nudge-spinner"></span>
+                  <span id="nudge-btn-label">Move $25 to Europe Trip</span>
+                </button>
+
+                <div class="confirm-flash" id="confirm-flash">
+                  <span class="check">✓</span>
+                  <span>Done — $25 moved. You're 36.5% to your goal.</span>
                 </div>
               </div>
             </div>
 
-            <div class="card">
-              <div class="card-kicker">Goal Progress</div>
-              <div class="goal-row">
-                <div class="goal-name">Europe Trip</div>
-                <div class="goal-amounts"><strong id="goal-current">$340</strong> of $1,000</div>
+            <!-- ORDINARY WEEK -->
+            <div class="scenario-block" id="scenario-ordinary">
+              <div class="card">
+                <div class="card-kicker">Top Insight</div>
+                <p class="insight-headline">Groceries came in at <strong>$118</strong> this week — about the same as usual.</p>
+                <div class="bars">
+                  <div class="bar-col">
+                    <div class="bar-track"><div class="bar-fill" style="height: 88%;"></div></div>
+                    <div class="bar-amt">$112</div>
+                    <div class="bar-label">Week 1</div>
+                  </div>
+                  <div class="bar-col current">
+                    <div class="bar-track"><div class="bar-fill" style="height: 93%;"></div></div>
+                    <div class="bar-amt">$118</div>
+                    <div class="bar-label">This week</div>
+                  </div>
+                </div>
+
+                <details class="txn-disclosure">
+                  <summary>See the 3 charges behind $118</summary>
+                  <ul class="txn-list">
+                    <li class="txn-row"><span class="txn-merchant">Trader Joe's<span class="txn-date">Aug 12</span></span><span class="txn-amt">$42.10</span></li>
+                    <li class="txn-row"><span class="txn-merchant">Safeway<span class="txn-date">Aug 14</span></span><span class="txn-amt">$38.65</span></li>
+                    <li class="txn-row"><span class="txn-merchant">Trader Joe's<span class="txn-date">Aug 16</span></span><span class="txn-amt">$37.25</span></li>
+                  </ul>
+                </details>
               </div>
-              <div class="progress-track">
-                <div class="progress-fill" id="goal-bar" style="width: 34%;"></div>
+
+              <div class="card nudge-card steady">
+                <div class="card-kicker">You're On Pace</div>
+                <p class="nudge-text">Nothing stood out this week — no action needed for your Europe Trip goal.</p>
+                <p class="nudge-sub">Add extra anytime you want to get there faster.</p>
               </div>
-              <div class="goal-pct" id="goal-pct-label">34% there</div>
             </div>
 
-            <div class="card nudge-card" id="nudge-card">
-              <div class="card-kicker">One Thing To Try</div>
-              <p class="nudge-text">Move $25 to Europe Trip to offset this week's dining spike.</p>
-              <p class="nudge-sub">From your Chase checking account — you'll still be on pace even with the higher spending.</p>
+          </div>
 
-              <button class="nudge-btn" id="btn-nudge">
-                <span class="spinner" id="nudge-spinner"></span>
-                <span id="nudge-btn-label">Move $25 to Europe Trip</span>
-              </button>
-
-              <div class="confirm-flash" id="confirm-flash">
-                <span class="check">✓</span>
-                <span>Done — $25 moved. You're 36.5% to your goal.</span>
-              </div>
+          <div class="card" style="margin: 0 1.1rem 0.85rem;">
+            <div class="card-kicker">Goal Progress</div>
+            <div class="goal-row">
+              <div class="goal-name">Europe Trip</div>
+              <div class="goal-amounts"><strong id="goal-current">$340</strong> of $1,000</div>
             </div>
-
+            <div class="progress-track">
+              <div class="progress-fill" id="goal-bar" style="width: 34%;"></div>
+            </div>
+            <div class="goal-pct" id="goal-pct-label">34% there</div>
           </div>
 
           <div class="replay">
@@ -639,6 +780,21 @@
     var goalCurrent = document.getElementById('goal-current');
     var goalPctLabel = document.getElementById('goal-pct-label');
     var replayBtn = document.getElementById('btn-replay');
+    var scenarioSpikeBtn = document.getElementById('btn-scenario-spike');
+    var scenarioOrdinaryBtn = document.getElementById('btn-scenario-ordinary');
+    var scenarioSpikeBlock = document.getElementById('scenario-spike');
+    var scenarioOrdinaryBlock = document.getElementById('scenario-ordinary');
+
+    function showScenario(name) {
+      var isSpike = name === 'spike';
+      scenarioSpikeBlock.classList.toggle('active', isSpike);
+      scenarioOrdinaryBlock.classList.toggle('active', !isSpike);
+      scenarioSpikeBtn.classList.toggle('active', isSpike);
+      scenarioOrdinaryBtn.classList.toggle('active', !isSpike);
+    }
+
+    scenarioSpikeBtn.addEventListener('click', function () { showScenario('spike'); });
+    scenarioOrdinaryBtn.addEventListener('click', function () { showScenario('ordinary'); });
 
     function openApp() {
       lock.classList.remove('active');
@@ -678,6 +834,7 @@
       goalBar.style.width = '34%';
       goalCurrent.textContent = '$340';
       goalPctLabel.textContent = '34% there';
+      showScenario('spike');
     }
 
     replayBtn.addEventListener('click', resetDemo);

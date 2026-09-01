@@ -29,10 +29,11 @@ Grounded in [research/interview-synthesis.md](../research/interview-synthesis.md
 ## What's in the Prototype
 
 1. **Lock screen notification** — "Your week in review is ready," tappable to open the app.
-2. **Weekly summary screen** — Top Insight (dining spend vs. week 1, shown as a simple bar comparison), Goal Progress (Europe Trip, $340 of $1,000), and a nudge card ("Move $25 to Europe Trip to offset this week's dining spike").
+2. **Weekly summary screen** — Top Insight (dining spend vs. week 1, shown as a simple bar comparison), a transaction-level drill-down (tap "See the 5 charges behind $186" — merchant, date, amount), Goal Progress (Europe Trip, $340 of $1,000), and a nudge card ("Move $25 to Europe Trip to offset this week's dining spike").
 3. **Completed action state** — tapping the nudge shows a brief loading state, then updates the goal progress bar and amount in place, with a confirmation message.
+4. **Ordinary-week scenario** — a "Spike Week / Ordinary Week" toggle previews the alternate case where nothing stood out (groceries, roughly flat vs. week 1, no action requested) — built to satisfy PRD user story 5 (`docs/prd.md`), since no template for this case existed before.
 
-A "Replay demo" control resets the flow — this is a prototype-only affordance, not part of the real app design.
+A "Replay demo" control resets the flow, and the scenario toggle switches between the two Top Insight/nudge variants — both are prototype-only affordances, not part of the real app design.
 
 ## Running It
 
