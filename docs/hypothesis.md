@@ -82,6 +82,8 @@ The four rounds surfaced three distinct, testable claims — not equally support
 ### Secondary Hypothesis (H3 — Notification Delivery Reach)
 *Support: weak (30%) — single simulated persona (Tom), with a weak, indirect echo in NPS #5 ("I just forget it exists") that speaks to low salience but isn't a direct match to the delivery-reach claim.*
 
+**Update — real data, see `data/metric-findings.md`:** The week-5 `summary_v1` experiment shows weekly summary open rates significantly beating control across all 4 sends (28–56% vs. 4–6%, all comparisons p<0.0001), holding up rather than collapsing over repeated sends. This is real evidence *against* Tom's delivery-reach concern, at least in this experiment population — H3's confidence score should be revisited upward.
+
 - **Hypothesis:** If the weekly summary is delivered via push notification, then users who have already gone passive will not reliably open it, because they've mentally disengaged from the app and don't act on its notifications — meaning content quality alone cannot fix re-engagement.
 - **Prediction:** Push notification open rates among already-passive users (e.g., 7+ days inactive) are significantly lower than among currently-active users, even when the underlying content tests well.
 - **Null hypothesis:** Passive users open push notifications at a similar rate to active users — delivery channel is not the bottleneck.

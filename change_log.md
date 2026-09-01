@@ -161,3 +161,8 @@ Audit trail of decisions made as Engage v2 progresses. Each entry: date, decisio
 **Decision:** Added .DS_Store to .gitignore.
 **Made by:** Me
 **Why:** A macOS Finder artifact turned up untracked during a /session-save pass — not project content, excluded to keep it out of future commits.
+
+## 2026-08-19
+**Decision:** Created data/metric-findings.md — real SQL analysis (SQLite, downloaded from the public "Nudge Dataset" Google Sheet) of the week-5 summary_v1 A/B experiment: 30-day retention by cohort week, the goal-setting/retention correlation at real scale, treatment-vs-control significance testing (day-7 significant, day-30 directionally strong but underpowered at n=50/arm), weekly-summary open-rate trend vs. control, and a follow-up confound check (does the retention lift hold once you control for who actually had spending data to look at — yes, using session-screen visits as a proxy since no transactions table exists). Cross-linked from docs/hypothesis.md (H3 confidence should move up given real open-rate evidence) and docs/decision-brief.md (day-30 lift is now a measurable success-metric candidate). Indexed in CLAUDE.md.
+**Made by:** Me
+**Why:** First real quantitative data this project has had, requested to inform the scale/no-scale decision. The confound follow-up was user-initiated — flagged a real data-model gap (no transactions/account-connection table) that limits how precisely this can be checked going forward.
