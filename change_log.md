@@ -206,3 +206,23 @@ Audit trail of decisions made as Engage v2 progresses. Each entry: date, decisio
 **Decision:** Built the deck as an interactive HTML Artifact ("Four Points to Marcus"), embedding the prototype screenshot (round4-02-summary.png) as base64. Published first in a plain, utilitarian executive-brief style; redesigned at the user's explicit direction into a pixel-art game aesthetic (Press Start 2P + VT323, a static procedural starfield, hard-edged panels, canvas-drawn pixel icons) — HP bars for the retention drop, item-pickup cards for pilot stats, a quest board for the proposal, an item-frame + RPG dialogue boxes for evidence, a level map for the timeline, and a quest log for the ask. All real numbers, quotes, and citations preserved unchanged under the new skin. Cross-linked from docs/presentation.md. Indexed in CLAUDE.md.
 **Made by:** Me
 **Why:** User wanted a scrollable HTML version of the deck, then explicitly directed the visual redesign. Could not render a local preview (large embedded image, consistent with an earlier large-artifact issue this session) or verify the hosted version directly (preview browser isn't authenticated to claude.ai) — ran structural checks instead (balanced tags, image embedded once, no leftover placeholders) and flagged both limitations to the user.
+
+## 2026-08-19
+**Decision:** Audited the project folder — full file inventory, cross-checked against CLAUDE.md's index, and a fresh read of README.md and project.md rather than assuming they were current. No files changed; findings only.
+**Made by:** Me
+**Why:** Requested to identify what's missing for next session and what reorganization would reduce friction.
+
+**Findings — what's missing:**
+- **README.md and project.md are both significantly stale**, still describing "problem-alignment, pre-Thursday" phase despite the prototype, the real experiment, the PRD, and the quarterly-review deck all having since happened. README.md's own file-organization table is missing the entire data/ and stakeholders/ folders and most of docs/'s 13 files, and its Live Links section is missing the newest artifact ("Four Points to Marcus"). project.md's Goals/Success Metrics still say "not yet defined" despite a proposed metric (day-7 retention) sitting in docs/recommendation-memo.md pending Marcus's sign-off.
+- No single "current state" pointer — CLAUDE.md's Related Files (30+ entries) is flat and chronological, with nothing distinguishing settled work from what's pending real sign-off.
+- .claude/skills/session-save/SKILL.md isn't indexed in CLAUDE.md's Related Files (only the newer /prd skill is).
+- No consolidated tracker for the ~5 simulated-negotiation outcomes each waiting on a different real person's sign-off (Raj, Lena, Marcus x2), plus standalone open items (overdraft check, no-goal-set state) — scattered across ~6 files.
+- No glossary for recurring shorthand — "Priya/Tom/Amara" name both real interview subjects (research/interview-synthesis.md) and separately-invented simulated playtest personas (research/agentic-playtest.md), a real recurring source of confusion this session; "H1/H2/H3" also has no quick-reference outside docs/hypothesis.md.
+- prototype/screenshots/round4-* now predate the prototype's current code (missing the transaction drill-down and ordinary-week additions).
+
+**Findings — reorganization suggestions:**
+- Group CLAUDE.md's Related Files by category/status instead of one flat list — low-risk, no file moves.
+- Refresh README.md and project.md now — highest-leverage single fix available.
+- Separate real from simulated evidence more structurally (naming convention or subfolder) rather than relying on per-file caveat text — real cost (cross-reference updates across ~15+ files), so worth doing deliberately, not urgently.
+- A single open-items tracker consolidating every "pending real sign-off" item.
+- Recommend *against* subdividing docs/ into further subfolders at its current size (13 files) — link-breakage risk outweighs benefit; revisit only if it roughly doubles again.
