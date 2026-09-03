@@ -37,7 +37,7 @@ See `CLAUDE.md`'s Open Questions and `docs/open-items.md` for the full, current 
 All private by default — share from each artifact's own menu.
 
 - **[Weekly Summary Prototype](https://claude.ai/code/artifact/d22034e8-634f-4012-a375-4270786bd1e2)** — the interactive prototype itself
-- **[Four Points to Marcus](https://claude.ai/code/artifact/e77f53b2-cf74-4d7d-a98d-e5532c87b85a)** — the quarterly-review deck, pixel-art game styled, same cited data as `docs/presentation.md`
+- **[Four Points to Marcus](https://claude.ai/code/artifact/e77f53b2-cf74-4d7d-a98d-e5532c87b85a)** — the quarterly-review deck, clean/minimal style (matches the Keynote-compatible export), same cited data as `docs/presentation.md`
 - **[Four Rounds](https://claude.ai/code/artifact/d35aa31e-030c-499f-985c-20e2f54ada62)** — a slide deck covering the full feedback loop the prototype went through
 - **[The Habit Gap](https://claude.ai/code/artifact/81972a96-b878-499b-a2cb-7eb66fc2dac3)** — a visual version of the competitive research
 

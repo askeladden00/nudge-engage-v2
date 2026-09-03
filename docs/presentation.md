@@ -2,7 +2,7 @@
 
 6-slide deck for Marcus, plus a fallback single-slide summary. Backbone: `docs/recommendation-memo.md` and `data/metric-findings.md`. Framing calibrated to `stakeholders/marcus.md` — recommendation stated first, one page of density per slide, a specific ask with a path to a deadline, honest about what's proven vs. not.
 
-**Built as an interactive artifact:** [Four Points to Marcus](https://claude.ai/code/artifact/e77f53b2-cf74-4d7d-a98d-e5532c87b85a) (private by default) — a pixel-art game-styled version of this exact structure and data. Speaker notes: `docs/presentation-notes.md`.
+**Built as an interactive artifact:** [Four Points to Marcus](https://claude.ai/code/artifact/e77f53b2-cf74-4d7d-a98d-e5532c87b85a) (private by default) — a clean/minimal-styled version of this exact structure and data, matching a Keynote-compatible `.pptx` export of the same deck. Speaker notes: `docs/presentation-notes.md`.
 
 ---
 

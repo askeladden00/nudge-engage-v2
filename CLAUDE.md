@@ -76,7 +76,7 @@ I report to Marcus, Head of Product.
 **Presentations**
 - [docs/presentation.md](docs/presentation.md) — 7-slide quarterly review narrative for Marcus, backboned by the recommendation memo and metric findings, calibrated to stakeholders/marcus.md
 - [docs/presentation-notes.md](docs/presentation-notes.md) — full speaker notes for the deck, one sentence per line
-- [Four Points to Marcus](https://claude.ai/code/artifact/e77f53b2-cf74-4d7d-a98d-e5532c87b85a) — the deck as an interactive artifact, pixel-art game styling, same cited data (private by default)
+- [Four Points to Marcus](https://claude.ai/code/artifact/e77f53b2-cf74-4d7d-a98d-e5532c87b85a) — the deck as an interactive artifact, clean/minimal styling matching a Keynote-compatible export, same cited data (private by default)
 - [Four Rounds](https://claude.ai/code/artifact/d35aa31e-030c-499f-985c-20e2f54ada62) — slide deck covering the full feedback loop (4 rounds, before/after, backlog), private by default
 
 **Stakeholders (local-only)**
