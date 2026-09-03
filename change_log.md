@@ -196,3 +196,13 @@ Audit trail of decisions made as Engage v2 progresses. Each entry: date, decisio
 **Decision:** Created .claude/skills/prd/SKILL.md — a reusable skill (`/prd`) that writes future PRDs in the same format and discipline as docs/prd.md: read the named audience's stakeholder profile(s) to calibrate tone/detail, read every workspace file touching the feature, propose additional grounded content before finalizing, one page by default (two max, only with confirmation), and cite every substantive claim inline or move it to Open Questions instead. Indexed in CLAUDE.md and README.md.
 **Made by:** Me
 **Why:** User liked the PRD's format and wanted it repeatable for future features, matching the precedent set by the session-save skill.
+
+## 2026-08-19
+**Decision:** Created docs/presentation.md (7-slide quarterly review narrative structure) and docs/presentation-notes.md (full speaker notes, 3-5 sentences per slide) for a review with Marcus. Backboned entirely by docs/recommendation-memo.md and data/metric-findings.md — no invented numbers — and calibrated to stakeholders/marcus.md (recommendation-first, one page of density per slide, a specific ask, honest about what's proven vs. not). Speaker notes later reformatted to one sentence per line for readability, no content removed.
+**Made by:** Me
+**Why:** Requested ahead of the quarterly review, using the recommendation memo and metric findings as the required backbone.
+
+## 2026-08-19
+**Decision:** Built the deck as an interactive HTML Artifact ("Four Points to Marcus"), embedding the prototype screenshot (round4-02-summary.png) as base64. Published first in a plain, utilitarian executive-brief style; redesigned at the user's explicit direction into a pixel-art game aesthetic (Press Start 2P + VT323, a static procedural starfield, hard-edged panels, canvas-drawn pixel icons) — HP bars for the retention drop, item-pickup cards for pilot stats, a quest board for the proposal, an item-frame + RPG dialogue boxes for evidence, a level map for the timeline, and a quest log for the ask. All real numbers, quotes, and citations preserved unchanged under the new skin. Cross-linked from docs/presentation.md. Indexed in CLAUDE.md.
+**Made by:** Me
+**Why:** User wanted a scrollable HTML version of the deck, then explicitly directed the visual redesign. Could not render a local preview (large embedded image, consistent with an earlier large-artifact issue this session) or verify the hosted version directly (preview browser isn't authenticated to claude.ai) — ran structural checks instead (balanced tags, image embedded once, no leftover placeholders) and flagged both limitations to the user.

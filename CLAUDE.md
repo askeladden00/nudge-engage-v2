@@ -40,6 +40,9 @@ I report to Marcus, Head of Product.
 - [data/experiment-design.md](data/experiment-design.md) — guided statistical walkthrough pressure-testing the pilot (not significant, p=0.123) and designing the properly powered follow-up (1,158 users/arm, ~5-7 weeks, fits an 8-week max), with 3 leading indicators to monitor weekly
 - [docs/prd.md](docs/prd.md) — 2-page PRD for Raj/Lena, every line cited to a workspace file, no unsourced opinion; drove two prototype additions (transaction drill-down, ordinary-week scenario)
 - `.claude/skills/prd/` — reusable skill (`/prd`) that writes future PRDs in the same audience-calibrated, fully-cited format
+- [docs/presentation.md](docs/presentation.md) — 7-slide quarterly review narrative for Marcus, backboned by the recommendation memo and metric findings, calibrated to stakeholders/marcus.md
+- [docs/presentation-notes.md](docs/presentation-notes.md) — full speaker notes for the deck, one sentence per line
+- [Four Points to Marcus](https://claude.ai/code/artifact/e77f53b2-cf74-4d7d-a98d-e5532c87b85a) — the deck as an interactive artifact, pixel-art game styling, same cited data (private by default)
 - [docs/design-review.md](docs/design-review.md) — simulated Lena-vs-PM design review (two agents), citing research/interview-synthesis.md for every user-need claim; surfaced 3 real gaps (overclaimed "personalized" label, untested subscription-scenario extrapolation, no unremarkable-week template) — pending real sign-off from Lena
 - [docs/qa-checklist.md](docs/qa-checklist.md) — edge case list, a 10-point PM QA pass on prototype/index.html (pass/fail/cannot-determine), and a draft PR comment for Raj flagging a missing overdraft/balance-safety check
 - [prototype/](prototype/) — interactive weekly-summary prototype (notification → summary → nudge action → confirmation), see prototype/README.md
