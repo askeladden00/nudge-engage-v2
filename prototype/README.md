@@ -43,4 +43,4 @@ Open [index.html](index.html) directly in a browser. No build step or server req
 
 - [research/agentic-playtest.md](../research/agentic-playtest.md) — simulated persona playtest (Priya, Tom, Amara), with two implemented fixes (goal name, entry tone) and a stack-ranked backlog for what's left
 - [research/prototype-feedback.md](../research/prototype-feedback.md) — real user feedback on the published version, with two more implemented fixes (Top Insight spacing, $25 fund-source clarity)
-- [screenshots/](screenshots/) — full-flow screenshots across three rounds, tracking what each persona actually saw
+- [screenshots/](screenshots/) — full-flow screenshots across four rounds (Priya, Tom, Amara, real feedback), tracking what each persona actually saw. **Note:** `round4-*` predates the transaction drill-down and Ordinary Week additions built for PRD user stories 2 and 5 — it reflects the base flow, not the current `index.html`.
