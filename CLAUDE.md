@@ -34,6 +34,11 @@ I report to Marcus, Head of Product.
 - [change_log.md](change_log.md) — decision audit trail
 - [docs/open-items.md](docs/open-items.md) — consolidated list of everything pending real sign-off or still an open question
 
+**Onboarding materials** *(teaching artifacts for new Claude Code users — not project research or tracking)*
+- [docs/onboarding-guide.md](docs/onboarding-guide.md) — one-page, 5-minute guide: what Claude Code is, the 3 habits that matter most, and the single most common mistake (confusing simulated output for a real decision)
+- [docs/onboarding-demo-script.md](docs/onboarding-demo-script.md) — a 15-minute live demo script for walking a new teammate through this workspace, ending with them running the reusable workspace prompt themselves in a fresh folder
+- [docs/onboarding-scenario.md](docs/onboarding-scenario.md) — a fictional, deliberately messy Slack-thread excerpt used as the AI-interview demo input; not part of this project's real history
+
 **Research — real**
 - [research/interview-synthesis.md](research/interview-synthesis.md) — synthesis of 3 user interviews (retained, churned, new)
 - [research/nps-analysis.md](research/nps-analysis.md) — theme analysis of 10 NPS responses
