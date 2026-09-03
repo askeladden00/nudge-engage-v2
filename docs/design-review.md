@@ -1,6 +1,6 @@
 # Design Review — Weekly Summary Prototype (with Lena)
 
-Produced from a simulated design-review negotiation: Claude played Lena (grounded in `stakeholders/lena.md`), a separate spawned agent played the PM, both grounded in `prototype/index.html`, `research/interview-synthesis.md`, and `docs/spec-readiness.md`. Not a real conversation with Lena — a rehearsal for one.
+**⚠ Simulated negotiation — not a real conversation with Lena.** Claude played Lena (grounded in `stakeholders/lena.md`), a separate spawned agent played the PM, both grounded in `prototype/index.html`, `research/interview-synthesis.md`, and `docs/spec-readiness.md`. Treat every outcome below as a rehearsal and a draft starting point, not as Lena's actual sign-off — see `docs/open-items.md` for what's still pending the real conversation.
 
 **Citation discipline:** every user-need claim below cites `research/interview-synthesis.md` — the real interviews — not the separate simulated persona playtest (`research/agentic-playtest.md`), which reuses the same three names for a different, simulated exercise.
 

@@ -49,15 +49,21 @@ A third finding sits outside the content question entirely: the **delivery mecha
 
 The four rounds surfaced three distinct, testable claims — not equally supported. Each is written below as hypothesis / prediction / null hypothesis, so it can actually be run as an experiment rather than treated as already-confirmed.
 
-**Confidence scoring method:** each score reflects (1) number of independent corroborating sources, (2) whether those sources are real vs. simulated, and (3) how directly the evidence maps to the claim (a direct quote vs. an inference). None are scored above 80% — all evidence so far is qualitative reaction to a static mockup, not usage data or an A/B test.
+**Confidence scoring method:** each score reflects (1) number of independent corroborating sources, (2) whether those sources are real vs. simulated, and (3) how directly the evidence maps to the claim (a direct quote vs. an inference). Original scores (below) capped below 80% because all evidence at the time was qualitative reaction to a static mockup, not usage data or an A/B test.
 
-| Hypothesis | Confidence | Cost to Validate |
-|---|---|---|
-| H1 — Verifiability | **70%** | Low — a UI drill-down, no new logic |
-| H3 — Notification Delivery Reach | **30%** | High — needs real notification open-rate data segmented by activity status |
-| H2 — Priority-Aware Nudging | **25%** | Low — a small qualitative check with debt-carrying users |
+**Revised 2026-09-02**, per a workspace review, now that real pilot data exists (`data/metric-findings.md`):
 
-**For prioritization:** H1 is the clear first candidate on both dimensions — highest confidence and cheapest to test. H2 and H3 sit at similar confidence but aren't equally cheap to de-risk: H2 can be checked quickly and informally, while H3 needs real behavioral data before it says anything conclusive.
+| Hypothesis | Confidence | Was | Cost to Validate |
+|---|---|---|---|
+| H1 — Verifiability | **70%** | 70% (unchanged) | Low — a UI drill-down, no new logic |
+| H2 — Priority-Aware Nudging | **25%** | 25% (unchanged) | Low — a small qualitative check with debt-carrying users |
+| H3 — Notification Delivery Reach | **15%** | ~~30%~~ | High — needs real notification open-rate data segmented by activity status |
+
+**Why H3 moved, and moved down:** the week-5 `summary_v1` pilot shows notification open rates significantly and durably beating control (28–56% vs. 4–6%, all p<0.0001, holding across all 4 sends rather than collapsing) — real evidence *against* Tom's delivery-reach concern. An earlier note in this file said this evidence should push H3 "upward," which had the direction backwards: evidence against a concern lowers confidence that the concern is real, it doesn't raise it. Corrected here. This isn't a perfect test of H3's specific prediction (open rate isn't segmented by prior-passive vs. currently-active status, so it doesn't isolate the exact comparison H3 calls for) — worth a genuine segmented look if that data becomes available — but as a directional read on "does delivery reach fail for a population like this," it's real, significant, and durable evidence that the concern is smaller than originally scored.
+
+**Why H1 didn't move:** the pilot's day-7 lift (p=0.002, `data/metric-findings.md`) is strong evidence the weekly summary concept broadly works, but it tested the summary experience as a whole, not the verifiability/drill-down mechanism in isolation — it doesn't newly corroborate H1's specific claim beyond what was already scored into the original 70% (2 simulated + 1 real source, all converging on wanting to verify the number). Revising it would be reading more into the pilot than it actually isolates.
+
+**For prioritization:** H1 remains the clear first candidate — highest confidence, and already built. H2 is next on cost — the qualitative debt-carrying-user check it needs is still cheap and still undone. H3 has dropped enough that the delivery-reach concern looks like a smaller risk than the other two open questions, though the segmented test that would close it out for real hasn't been run.
 
 ### Primary Hypothesis (H1 — Verifiability)
 *Support: strong (70%) — corroborated by 3 independent sources (2 simulated, 1 real), all converging on the same specific ask.*

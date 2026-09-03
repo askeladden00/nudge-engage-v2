@@ -26,9 +26,11 @@ Our diagnosis (`data/metric-diagnosis.md`) found that users who acted on the nud
 
 ---
 
-## Debate Outcome (simulated — Claude played Marcus using `stakeholders/marcus.md`, a spawned agent played the PM)
+## Debate Outcome
 
-Not a real conversation with Marcus — a rehearsal for one. Three questions, in order:
+**⚠ Simulated from here down — not a real conversation with Marcus.** Everything above this line (Recommendation, Situation) is the real memo. Claude played Marcus (using `stakeholders/marcus.md`), a spawned agent played the PM — a rehearsal for the real conversation, not a substitute for it. See `docs/open-items.md` for what's still pending Marcus's actual sign-off.
+
+Three questions, in order:
 
 1. **"Is n=50/arm enough to trust this?"** Resolved honestly: day-7 (p=0.002) is real, not noise. Day-30 (p=0.123) is genuinely underpowered, not null — 1,158/arm needed for a properly powered test (see `data/experiment-design.md`), not a vague "trust it."
 2. **"What's the cost of waiting?"** Reasoned through the actual math (50 new users/arm/week from week 5's enrollment) rather than inventing a date — flagged that the real enrollment pace needs confirming with data/eng before promising a timeline. Mid-debate, the PM briefly argued for shipping now (cheap H1 build cost + solid day-7 signal) — a real inconsistency with the memo's own recommendation.

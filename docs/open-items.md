@@ -14,7 +14,7 @@ A single consolidated list of everything in this workspace still waiting on a re
 
 ## Open Product/Technical Questions
 
-- **Overdraft/balance-safety check.** No logic exists anywhere — not in the prototype, not in `docs/spec-readiness.md` — to check whether the $25 nudge amount would overdraft the user's account. Flagged in `docs/qa-checklist.md` as blocking before a real launch (not blocking the current prototype artifact).
+- **Overdraft/balance-safety check.** No logic is implemented anywhere — not in the prototype. A proposed behavior (check balance before showing the nudge; reduce or suppress it if unsafe) now exists in `docs/spec-readiness.md` §3, added 2026-09-02, but it's a draft pending Raj's real input on feasibility, not a locked spec. Flagged in `docs/qa-checklist.md` as blocking before a real launch (not blocking the current prototype artifact).
 - **No savings goal set.** No defined state for a user who never set one. The prototype hardcodes "Europe Trip." Does the Goal Progress card disappear, prompt goal-setting, or show something else? (`docs/qa-checklist.md`)
 - **Zero-transaction "quiet week."** Intent is defined (`docs/spec-readiness.md`: a distinct low-key variant, not silence, not the spike template with empty data) but not implemented in `prototype/index.html`.
 - **No app sessions in the past week**, independent of transaction activity. Not addressed — the prototype always fires the notification regardless of recent engagement. (`docs/qa-checklist.md`)

@@ -1,6 +1,6 @@
 # Spec Readiness — Weekly Summary (H1)
 
-Produced from a simulated spec-review negotiation: Claude played Raj (using `stakeholders/raj.md`), and a separate agent played the PM, both grounded in the actual workspace docs. Not a real conversation with Raj — a rehearsal for one.
+**⚠ Simulated negotiation — not a real conversation with Raj.** Claude played Raj (using `stakeholders/raj.md`), and a separate agent played the PM, both grounded in the actual workspace docs. Treat every outcome below as a rehearsal and a draft starting point, not as Raj's actual sign-off — see `docs/open-items.md` for what's still pending the real conversation.
 
 ## 1. Spec Readiness Summary
 
@@ -30,7 +30,18 @@ Produced from a simulated spec-review negotiation: Claude played Raj (using `sta
 **Empty State** (new section — didn't exist anywhere before this exercise):
 > **Zero-transaction weeks:** The notification still fires, using a distinct low-key variant — no spending highlight, a "quiet week" message plus a passive prompt (check a goal, review a budget). It does not go silent, and does not reuse the normal spike template with empty data.
 
-## 3. Async Slack Message (send to Raj before sprint kickoff)
+## 3. Open Gap Not Covered by This Negotiation — Overdraft/Balance-Safety Check
+
+**Added 2026-09-02, per a workspace review — not part of the original simulated negotiation above.** This is the most-flagged unresolved gap in the workspace (`docs/qa-checklist.md` marks it a launch-blocking Fail; there's already a drafted PR comment for Raj about it) and it has never had a proposed behavior written down anywhere, including here. This is a proposal to react to, not a locked decision — Raj's real input is needed on feasibility before it's spec-ready.
+
+**The gap:** the nudge recommends moving a fixed dollar amount (e.g. $25) to a savings goal, with no check for whether that would overdraft the source account.
+
+**Proposed behavior (draft, pending Raj):**
+> Before the nudge is shown, check the source account's current available balance against the recommended transfer amount. If the transfer would take the balance below $0 (or below the account's minimum-balance threshold, if one exists), don't show the standard nudge — show a reduced-amount variant if a smaller safe transfer is still meaningfully worth suggesting, or suppress the nudge entirely for that week if not, falling back to the insight-only view with no action card.
+
+**Open technical question, unresolved by this proposal:** whether real-time (or near-real-time) available balance is a data point Nudge already has for a connected account, or whether it would require new data. `docs/codebase-summary.md`'s tour of the reference codebase doesn't cover this — it needs a real answer from Raj before this can move from "proposed behavior" to an actual spec.
+
+## 4. Async Slack Message (send to Raj before sprint kickoff)
 
 > Hey Raj — recap from our spec pass, want your explicit thumbs-up before I bring this to kickoff:
 > - **Scope:** H1 only (transaction drill-down, in-app), no push infra, no new Goal model. H2 explicitly out of scope.
