@@ -37,8 +37,10 @@ I report to Marcus, Head of Product.
 **Research — real**
 - [research/interview-synthesis.md](research/interview-synthesis.md) — synthesis of 3 user interviews (retained, churned, new)
 - [research/nps-analysis.md](research/nps-analysis.md) — theme analysis of 10 NPS responses
-- [research/competitive-matrix.md](research/competitive-matrix.md) — structured competitor research (5 apps) underlying The Habit Gap artifact
-- [The Habit Gap](https://claude.ai/code/artifact/81972a96-b878-499b-a2cb-7eb66fc2dac3) — visual artifact version of the competitive matrix (private by default)
+- [research/competitive-matrix.md](research/competitive-matrix.md) — structured competitor research (5 apps), always the latest snapshot; underlies The Habit Gap artifact
+- [research/competitive-trends.md](research/competitive-trends.md) — month-over-month log of what changed in the competitive landscape between scans
+- [research/competitive-history/](research/competitive-history/) — one dated, immutable snapshot per scan (e.g. `2026-08.md`), for comparing any two points in time directly
+- [The Habit Gap](https://claude.ai/code/artifact/81972a96-b878-499b-a2cb-7eb66fc2dac3) — visual artifact version of the competitive matrix (private by default) — refreshed manually when the matrix changes materially, not on every scan
 - [research/prototype-feedback.md](research/prototype-feedback.md) — real user feedback on the published prototype
 
 **Research — simulated**
@@ -78,6 +80,7 @@ I report to Marcus, Head of Product.
 **Skills**
 - `.claude/skills/prd/` — reusable skill (`/prd`) that writes future PRDs in the same audience-calibrated, fully-cited format
 - `.claude/skills/session-save/` — end-of-session hygiene skill that proposes updates to the tracking files above before writing anything
+- `.claude/skills/competitive-scan/` — reusable skill (`/competitive-scan`) that re-runs the competitive analysis, archives a dated snapshot, and logs what changed since the last run. Manually triggered — intended roughly monthly, no automation configured.
 
 ## Repo
 Pushed to a private GitHub repo: https://github.com/askeladden00/nudge-engage-v2
